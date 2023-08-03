@@ -21,5 +21,78 @@ namespace Cliente
         {
 
         }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnGravar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente;
+            ClienteDAO clienteDAO;
+            try
+            {
+                cliente = new Cliente();
+                cliente.setNome(txtNome.Text);
+                cliente.setIdade(txtIdade.Text);
+
+                clienteDAO = new ClienteDAO();
+                if(clienteDAO.gravar(cliente) > 0)
+                {
+                    MessageBox.Show("Salvo com sucesso.");
+                }
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void btnListar_Click(object sender, EventArgs e)
+        {
+            ClienteDAO clienteDAO;
+            try
+            {
+                clienteDAO = new ClienteDAO();
+                dgvDados.DataSource = clienteDAO.listar();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void txtCodigo_Leave(object sender, EventArgs e)
+        {
+            ClienteDAO clienteDAO;
+            Cliente cliente;
+            int codigo;
+            try
+            {
+                if(txtCodigo.Text.Trim().Length > 0)
+                {
+                    codigo = Convert.ToInt32(txtCodigo.Text);
+                    clienteDAO = new ClienteDAO();
+                    cliente = clienteDAO.preencher(codigo);
+                    if(cliente != null)
+                    {
+                        txtCodigo.Text = cliente.codigo.ToString();
+                        txtBoxNome.Text = cliente.nome;
+                        txtBoxIdade.Text = cliente.idade.ToString();
+                    }
+                    else
+                    {
+                        txtBoxNome.Clear();
+                        txtBoxIdade.Clear();
+                        txtBoxNome.Focus();
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }
