@@ -34,8 +34,8 @@ namespace Cliente
             try
             {
                 cliente = new Cliente();
-                cliente.setNome(txtNome.Text);
-                cliente.setIdade(txtIdade.Text);
+                cliente.setNome(txtBoxNome.Text);
+                cliente.setIdade(txtBoxIdade.Text);
 
                 clienteDAO = new ClienteDAO();
                 if(clienteDAO.gravar(cliente) > 0)
@@ -70,16 +70,16 @@ namespace Cliente
             int codigo;
             try
             {
-                if(txtCodigo.Text.Trim().Length > 0)
+                if(txtBoxCodigo.Text.Trim().Length > 0)
                 {
-                    codigo = Convert.ToInt32(txtCodigo.Text);
+                    codigo = Convert.ToInt32(txtBoxCodigo.Text);
                     clienteDAO = new ClienteDAO();
                     cliente = clienteDAO.preencher(codigo);
                     if(cliente != null)
                     {
-                        txtCodigo.Text = cliente.codigo.ToString();
-                        txtBoxNome.Text = cliente.nome;
-                        txtBoxIdade.Text = cliente.idade.ToString();
+                        txtBoxCodigo.Text = cliente.codigo.ToString();
+                        txtNome.Text = cliente.nome;
+                        txtIdade.Text = cliente.idade.ToString();
                     }
                     else
                     {
