@@ -94,5 +94,12 @@ namespace Cliente
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void btnGrafico_Click(object sender, EventArgs e)
+        {
+            fGraficos f;
+            f = new fGraficos();
+            f.ShowDialog();
+        }
     }
 }

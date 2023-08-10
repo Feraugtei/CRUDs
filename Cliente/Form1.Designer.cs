@@ -37,6 +37,7 @@
             this.btnListar = new System.Windows.Forms.Button();
             this.dgvDados = new System.Windows.Forms.DataGridView();
             this.txtCodigo = new System.Windows.Forms.Label();
+            this.btnGrafico = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -125,11 +126,22 @@
             this.txtCodigo.Text = "Código";
             this.txtCodigo.Click += new System.EventHandler(this.label1_Click);
             // 
+            // btnGrafico
+            // 
+            this.btnGrafico.Location = new System.Drawing.Point(46, 358);
+            this.btnGrafico.Name = "btnGrafico";
+            this.btnGrafico.Size = new System.Drawing.Size(75, 37);
+            this.btnGrafico.TabIndex = 9;
+            this.btnGrafico.Text = "Grafico";
+            this.btnGrafico.UseVisualStyleBackColor = true;
+            this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.dgvDados);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnGravar);
@@ -158,6 +170,7 @@
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.DataGridView dgvDados;
         private System.Windows.Forms.Label txtCodigo;
+        private System.Windows.Forms.Button btnGrafico;
     }
 }
 
