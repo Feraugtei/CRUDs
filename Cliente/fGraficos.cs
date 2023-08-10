@@ -24,6 +24,7 @@ namespace Cliente
             DataTable tabela;
             ClienteDAO clienteDAO;
             int i;
+            double valor = 0;
 
             try
             {
@@ -45,6 +46,11 @@ namespace Cliente
 
                 for (i=0; i<tabela.Rows.Count; i++)
                 {
+                    if  (! ((tabela.Rows[i][2] != DBNull.Value) && (Double.TryParse(tabela.Rows[i][2].ToString(), out valor))))
+                    {
+                        valor = 0;
+                    }
+
                     chart1.Series[0].Points.AddXY((string)tabela.Rows[i][1],
                         Convert.ToDouble(tabela.Rows[i][2]));
                     chart1.Series[1].Points.Add(45);
