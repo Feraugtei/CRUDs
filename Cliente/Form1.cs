@@ -34,10 +34,10 @@ namespace Cliente
             try
             {
                 cliente = new Cliente();
-                cliente.setDescricao(txtBoxNome.Text);
-                cliente.setValidade(txtBoxIdade.Text);
-                cliente.setPreco(txtBoxIdade.Text);
-                cliente.setLucro(txtBoxIdade.Text);
+                cliente.setDescricao(txtBoxDescricao.Text);
+                cliente.setValidade(boxValidade.Value);
+                cliente.setPreco(txtBoxPreco.Text);
+                cliente.setLucro(txtBoxLucro.Text);
 
                 clienteDAO = new ClienteDAO();
                 if(clienteDAO.gravar(cliente) > 0)
@@ -80,14 +80,18 @@ namespace Cliente
                     if(cliente != null)
                     {
                         txtBoxCodigo.Text = cliente.codigo.ToString();
-                        txtDescricao.Text = cliente.nome;
-                        txtIdade.Text = cliente.idade.ToString();
+                        txtBoxDescricao.Text = cliente.descricao;
+                        boxValidade.Value = cliente.validade;
+                        txtBoxPreco.Text = cliente.preco.ToString();
+                        txtBoxLucro.Text = cliente.lucro.ToString();
+
                     }
                     else
                     {
-                        txtBoxNome.Clear();
-                        txtBoxIdade.Clear();
-                        txtBoxNome.Focus();
+                        txtBoxDescricao.Clear();
+                        boxValidade.Text = string.Empty;
+                        txtBoxPreco.Clear();
+                        txtBoxLucro.Clear();
                     }
                 }
             }
@@ -103,7 +107,5 @@ namespace Cliente
             f = new fGraficos();
             f.ShowDialog();
         }
-
-       
     }
 }

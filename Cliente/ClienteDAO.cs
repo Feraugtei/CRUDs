@@ -17,7 +17,7 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Insert into produto(descricao,validade,preco,lucro) values(@d,@v,@p,@l);";
+                banco.comando.CommandText = "Insert into produto(descricao,datavalidade,preco,taxalucro) values(@d,@v,@p,@l);";
                 banco.comando.Parameters.Add("@d", NpgsqlTypes.NpgsqlDbType.Varchar).Value = obj.descricao;
                 banco.comando.Parameters.Add("@v", NpgsqlTypes.NpgsqlDbType.Date).Value = obj.validade;
                 banco.comando.Parameters.Add("@p", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.preco;
@@ -41,7 +41,7 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Insert into produto(descricao,validade,preco,lucro) values(@d,@v,@p,@l) returning codigo;";
+                banco.comando.CommandText = "Insert into produto(descricao,datavalidade,preco,taxalucro) values(@d,@v,@p,@l) returning codigo;";
                 banco.comando.Parameters.Add("@d", NpgsqlTypes.NpgsqlDbType.Varchar).Value = obj.descricao;
                 banco.comando.Parameters.Add("@v", NpgsqlTypes.NpgsqlDbType.Date).Value = obj.validade;
                 banco.comando.Parameters.Add("@p", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.preco;
@@ -64,7 +64,7 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Select codigo,descricao,validade,preco,lucro from produto order by 1;";
+                banco.comando.CommandText = "Select descricao,datavalidade,preco,taxalucro from produto order by 1;";
                 banco.reader = banco.comando.ExecuteReader();// Retorna uma tabela postgres
                 banco.tabela = new DataTable();
                 banco.tabela.Load(banco.reader);
@@ -84,7 +84,7 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Select codigo,descricao,validade,preco,lucro from produto where codigo= @c;";
+                banco.comando.CommandText = "Select codigo,descricao,datavalidade,preco,taxalucro from produto where codigo= @c;";
                 banco.comando.Parameters.Add("@c", NpgsqlTypes.NpgsqlDbType.Integer).Value = codigo;
                 banco.comando.Prepare();
                 banco.reader = banco.comando.ExecuteReader();

@@ -29,16 +29,19 @@
         private void InitializeComponent()
         {
             this.txtDescricao = new System.Windows.Forms.Label();
-            this.txtIdade = new System.Windows.Forms.Label();
+            this.txtValidade = new System.Windows.Forms.Label();
             this.txtBoxCodigo = new System.Windows.Forms.TextBox();
-            this.txtBoxNome = new System.Windows.Forms.TextBox();
-            this.txtBoxIdade = new System.Windows.Forms.TextBox();
+            this.txtBoxDescricao = new System.Windows.Forms.TextBox();
             this.btnGravar = new System.Windows.Forms.Button();
             this.btnListar = new System.Windows.Forms.Button();
             this.dgvDados = new System.Windows.Forms.DataGridView();
             this.txtCodigo = new System.Windows.Forms.Label();
             this.btnGrafico = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
+            this.txtPreco = new System.Windows.Forms.Label();
+            this.boxValidade = new System.Windows.Forms.DateTimePicker();
+            this.txtBoxPreco = new System.Windows.Forms.TextBox();
+            this.txtLucro = new System.Windows.Forms.Label();
+            this.txtBoxLucro = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -52,44 +55,37 @@
             this.txtDescricao.TabIndex = 1;
             this.txtDescricao.Text = "Descrição";
             // 
-            // txtIdade
+            // txtValidade
             // 
-            this.txtIdade.AutoSize = true;
-            this.txtIdade.Location = new System.Drawing.Point(113, 172);
-            this.txtIdade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.txtIdade.Name = "txtIdade";
-            this.txtIdade.Size = new System.Drawing.Size(42, 16);
-            this.txtIdade.TabIndex = 2;
-            this.txtIdade.Text = "Idade";
+            this.txtValidade.AutoSize = true;
+            this.txtValidade.Location = new System.Drawing.Point(17, 247);
+            this.txtValidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.txtValidade.Name = "txtValidade";
+            this.txtValidade.Size = new System.Drawing.Size(62, 16);
+            this.txtValidade.TabIndex = 2;
+            this.txtValidade.Text = "Validade";
             // 
             // txtBoxCodigo
             // 
-            this.txtBoxCodigo.Location = new System.Drawing.Point(134, 31);
+            this.txtBoxCodigo.Location = new System.Drawing.Point(116, 31);
             this.txtBoxCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxCodigo.Name = "txtBoxCodigo";
-            this.txtBoxCodigo.Size = new System.Drawing.Size(132, 22);
+            this.txtBoxCodigo.Size = new System.Drawing.Size(200, 22);
             this.txtBoxCodigo.TabIndex = 3;
             this.txtBoxCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
-            // txtBoxNome
+            // txtBoxDescricao
             // 
-            this.txtBoxNome.Location = new System.Drawing.Point(225, 126);
-            this.txtBoxNome.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBoxNome.Name = "txtBoxNome";
-            this.txtBoxNome.Size = new System.Drawing.Size(132, 22);
-            this.txtBoxNome.TabIndex = 4;
-            // 
-            // txtBoxIdade
-            // 
-            this.txtBoxIdade.Location = new System.Drawing.Point(225, 169);
-            this.txtBoxIdade.Margin = new System.Windows.Forms.Padding(4);
-            this.txtBoxIdade.Name = "txtBoxIdade";
-            this.txtBoxIdade.Size = new System.Drawing.Size(132, 22);
-            this.txtBoxIdade.TabIndex = 5;
+            this.txtBoxDescricao.Location = new System.Drawing.Point(116, 88);
+            this.txtBoxDescricao.Margin = new System.Windows.Forms.Padding(4);
+            this.txtBoxDescricao.Multiline = true;
+            this.txtBoxDescricao.Name = "txtBoxDescricao";
+            this.txtBoxDescricao.Size = new System.Drawing.Size(277, 116);
+            this.txtBoxDescricao.TabIndex = 4;
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(61, 336);
+            this.btnGravar.Location = new System.Drawing.Point(58, 412);
             this.btnGravar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGravar.Name = "btnGravar";
             this.btnGravar.Size = new System.Drawing.Size(100, 28);
@@ -100,7 +96,7 @@
             // 
             // btnListar
             // 
-            this.btnListar.Location = new System.Drawing.Point(285, 336);
+            this.btnListar.Location = new System.Drawing.Point(293, 412);
             this.btnListar.Margin = new System.Windows.Forms.Padding(4);
             this.btnListar.Name = "btnListar";
             this.btnListar.Size = new System.Drawing.Size(100, 28);
@@ -139,7 +135,7 @@
             // 
             // btnGrafico
             // 
-            this.btnGrafico.Location = new System.Drawing.Point(61, 441);
+            this.btnGrafico.Location = new System.Drawing.Point(183, 480);
             this.btnGrafico.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrafico.Name = "btnGrafico";
             this.btnGrafico.Size = new System.Drawing.Size(100, 46);
@@ -148,29 +144,62 @@
             this.btnGrafico.UseVisualStyleBackColor = true;
             this.btnGrafico.Click += new System.EventHandler(this.btnGrafico_Click);
             // 
-            // label1
+            // txtPreco
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(116, 223);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 16);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "label1";
+            this.txtPreco.AutoSize = true;
+            this.txtPreco.Location = new System.Drawing.Point(17, 303);
+            this.txtPreco.Name = "txtPreco";
+            this.txtPreco.Size = new System.Drawing.Size(43, 16);
+            this.txtPreco.TabIndex = 10;
+            this.txtPreco.Text = "Preco";
+            // 
+            // boxValidade
+            // 
+            this.boxValidade.Location = new System.Drawing.Point(116, 247);
+            this.boxValidade.Name = "boxValidade";
+            this.boxValidade.Size = new System.Drawing.Size(277, 22);
+            this.boxValidade.TabIndex = 11;
+            // 
+            // txtBoxPreco
+            // 
+            this.txtBoxPreco.Location = new System.Drawing.Point(116, 303);
+            this.txtBoxPreco.Name = "txtBoxPreco";
+            this.txtBoxPreco.Size = new System.Drawing.Size(200, 22);
+            this.txtBoxPreco.TabIndex = 12;
+            // 
+            // txtLucro
+            // 
+            this.txtLucro.AutoSize = true;
+            this.txtLucro.Location = new System.Drawing.Point(20, 356);
+            this.txtLucro.Name = "txtLucro";
+            this.txtLucro.Size = new System.Drawing.Size(40, 16);
+            this.txtLucro.TabIndex = 13;
+            this.txtLucro.Text = "Lucro";
+            // 
+            // txtBoxLucro
+            // 
+            this.txtBoxLucro.Location = new System.Drawing.Point(116, 356);
+            this.txtBoxLucro.Name = "txtBoxLucro";
+            this.txtBoxLucro.Size = new System.Drawing.Size(200, 22);
+            this.txtBoxLucro.TabIndex = 14;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1067, 557);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtBoxLucro);
+            this.Controls.Add(this.txtLucro);
+            this.Controls.Add(this.txtBoxPreco);
+            this.Controls.Add(this.boxValidade);
+            this.Controls.Add(this.txtPreco);
             this.Controls.Add(this.btnGrafico);
             this.Controls.Add(this.dgvDados);
             this.Controls.Add(this.btnListar);
             this.Controls.Add(this.btnGravar);
-            this.Controls.Add(this.txtBoxIdade);
-            this.Controls.Add(this.txtBoxNome);
+            this.Controls.Add(this.txtBoxDescricao);
             this.Controls.Add(this.txtBoxCodigo);
-            this.Controls.Add(this.txtIdade);
+            this.Controls.Add(this.txtValidade);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtCodigo);
             this.Margin = new System.Windows.Forms.Padding(4);
@@ -185,16 +214,19 @@
 
         #endregion
         private System.Windows.Forms.Label txtDescricao;
-        private System.Windows.Forms.Label txtIdade;
+        private System.Windows.Forms.Label txtValidade;
         private System.Windows.Forms.TextBox txtBoxCodigo;
-        private System.Windows.Forms.TextBox txtBoxNome;
-        private System.Windows.Forms.TextBox txtBoxIdade;
+        private System.Windows.Forms.TextBox txtBoxDescricao;
         private System.Windows.Forms.Button btnGravar;
         private System.Windows.Forms.Button btnListar;
         private System.Windows.Forms.DataGridView dgvDados;
         private System.Windows.Forms.Label txtCodigo;
         private System.Windows.Forms.Button btnGrafico;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label txtPreco;
+        private System.Windows.Forms.DateTimePicker boxValidade;
+        private System.Windows.Forms.TextBox txtBoxPreco;
+        private System.Windows.Forms.Label txtLucro;
+        private System.Windows.Forms.TextBox txtBoxLucro;
     }
 }
 
