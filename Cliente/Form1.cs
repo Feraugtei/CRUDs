@@ -34,8 +34,10 @@ namespace Cliente
             try
             {
                 cliente = new Cliente();
-                cliente.setNome(txtBoxNome.Text);
-                cliente.setIdade(txtBoxIdade.Text);
+                cliente.setDescricao(txtBoxNome.Text);
+                cliente.setValidade(txtBoxIdade.Text);
+                cliente.setPreco(txtBoxIdade.Text);
+                cliente.setLucro(txtBoxIdade.Text);
 
                 clienteDAO = new ClienteDAO();
                 if(clienteDAO.gravar(cliente) > 0)
@@ -78,7 +80,7 @@ namespace Cliente
                     if(cliente != null)
                     {
                         txtBoxCodigo.Text = cliente.codigo.ToString();
-                        txtNome.Text = cliente.nome;
+                        txtDescricao.Text = cliente.nome;
                         txtIdade.Text = cliente.idade.ToString();
                     }
                     else
@@ -101,5 +103,7 @@ namespace Cliente
             f = new fGraficos();
             f.ShowDialog();
         }
+
+       
     }
 }

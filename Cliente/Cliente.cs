@@ -10,9 +10,13 @@ namespace Cliente
     {
         public int codigo { get; private set; }
 
-        public string nome { get; private set; }
+        public string descricao { get; private set; }
 
-        public int idade { get; private set; }
+        public DateTime validade { get; private set; }
+
+        public double preco { get; private set; }
+
+        public double lucro { get; private set; }
 
         public void setCodigo(int c)
         {
@@ -27,22 +31,37 @@ namespace Cliente
             this.setCodigo(Convert.ToInt32(c));
         }
 
-        public void setNome(String nome)
+        public void setDescricao(String descricao)
         {
-            this.nome = nome;
+            this.descricao = descricao;
         }
 
-        public void setIdade(int i)
+        public void setValidade(DateTime validade)
         {
-            if (i < 0)
-                throw new Exception("Idade Inválida");
-            else
-                this.idade = i;
+            this.validade = validade;
         }
 
-        public void setIdade(string i)
+        public void setValidade(String validade)
         {
-            this.setIdade(Convert.ToInt32(i));
+            this.setValidade(Convert.ToDateTime(validade));
+        }
+
+        public void setPreco(double preco)
+        {
+            this.preco = preco;
+        }
+        public void setPreco(String preco)
+        {
+            this.setPreco(Convert.ToDouble(preco));
+        }
+
+        public void setLucro(double lucro)
+        {
+            this.lucro = lucro;
+        }
+        public void setLucro(String lucro)
+        {
+            this.setLucro(Convert.ToDouble(lucro));
         }
     }
 }

@@ -17,9 +17,11 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Insert into cliente(nome,idade) values(@n,@i);";
-                banco.comando.Parameters.Add("@n", NpgsqlTypes.NpgsqlDbType.Varchar).Value = obj.nome;
-                banco.comando.Parameters.Add("@i", NpgsqlTypes.NpgsqlDbType.Integer).Value = obj.idade;
+                banco.comando.CommandText = "Insert into produto(descricao,validade,preco,lucro) values(@d,@v,@p,@l);";
+                banco.comando.Parameters.Add("@d", NpgsqlTypes.NpgsqlDbType.Varchar).Value = obj.descricao;
+                banco.comando.Parameters.Add("@v", NpgsqlTypes.NpgsqlDbType.Date).Value = obj.validade;
+                banco.comando.Parameters.Add("@p", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.preco;
+                banco.comando.Parameters.Add("@l", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.lucro;
                 banco.comando.Prepare();
                 qtde = banco.comando.ExecuteNonQuery();
                 Banco.conexao.Close();
@@ -39,9 +41,11 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Insert into cliente(nome,idade) values(@n,@i) returning codigo;";
-                banco.comando.Parameters.Add("@n", NpgsqlTypes.NpgsqlDbType.Varchar).Value = obj.nome;
-                banco.comando.Parameters.Add("@i", NpgsqlTypes.NpgsqlDbType.Integer).Value = obj.idade;
+                banco.comando.CommandText = "Insert into produto(descricao,validade,preco,lucro) values(@d,@v,@p,@l) returning codigo;";
+                banco.comando.Parameters.Add("@d", NpgsqlTypes.NpgsqlDbType.Varchar).Value = obj.descricao;
+                banco.comando.Parameters.Add("@v", NpgsqlTypes.NpgsqlDbType.Date).Value = obj.validade;
+                banco.comando.Parameters.Add("@p", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.preco;
+                banco.comando.Parameters.Add("@l", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.lucro;
                 banco.comando.Prepare();
                 //qtde = banco.comando.ExecuteNonQuery();
                 codigo = (int)banco.comando.ExecuteScalar(); // Devolve um valor
@@ -60,7 +64,7 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Select codigo,nome, idade from cliente order by 1;";
+                banco.comando.CommandText = "Select codigo,descricao,validade,preco,lucro from produto order by 1;";
                 banco.reader = banco.comando.ExecuteReader();// Retorna uma tabela postgres
                 banco.tabela = new DataTable();
                 banco.tabela.Load(banco.reader);
@@ -80,7 +84,7 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Select codigo,nome, idade from cliente where codigo= @c;";
+                banco.comando.CommandText = "Select codigo,descricao,validade,preco,lucro from produto where codigo= @c;";
                 banco.comando.Parameters.Add("@c", NpgsqlTypes.NpgsqlDbType.Integer).Value = codigo;
                 banco.comando.Prepare();
                 banco.reader = banco.comando.ExecuteReader();
@@ -88,8 +92,10 @@ namespace Cliente
                 {
                     cliente = new Cliente();
                     cliente.setCodigo((int)banco.reader[0]);
-                    cliente.setNome((String)banco.reader[1]);
-                    cliente.setIdade((int)banco.reader[2]);
+                    cliente.setDescricao((String)banco.reader[1]);
+                    cliente.setValidade((DateTime)banco.reader[2]);
+                    cliente.setPreco((float)banco.reader[3]);
+                    cliente.setLucro((float)banco.reader[4]);
                 }
                 Banco.conexao.Close();
                 return (cliente);
