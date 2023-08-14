@@ -1,10 +1,8 @@
---create database TOCC8; 
-
---use TOCC8;
-
-create table cliente (
+create table produto (
 codigo serial primary key,
-nome varchar(100),
-idade int check(idade>0));
+descricao varchar(100),
+dataValidade date,
+preco float,
+taxaLucro float);
 
-select * from cliente; --consultar tabela
+select * from produto;
