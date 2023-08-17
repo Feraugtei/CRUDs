@@ -113,8 +113,6 @@ namespace Cliente
             ClienteDAO clienteDAO;
             clienteDAO = new ClienteDAO();
 
-            //dgvDados.DataSource = clienteDAO.listar();
-
             dgvDados.DataSource = clienteDAO.pesquisar(txtBoxPesquisa.Text);
         }
     }

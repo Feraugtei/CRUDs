@@ -114,7 +114,7 @@
             this.dgvDados.RowHeadersVisible = false;
             this.dgvDados.RowHeadersWidth = 51;
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDados.Size = new System.Drawing.Size(440, 426);
+            this.dgvDados.Size = new System.Drawing.Size(806, 426);
             this.dgvDados.TabIndex = 8;
             // 
             // txtCodigo
@@ -202,7 +202,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 453);
+            this.ClientSize = new System.Drawing.Size(1166, 453);
             this.Controls.Add(this.txtBoxPesquisa);
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.txtBoxLucro);

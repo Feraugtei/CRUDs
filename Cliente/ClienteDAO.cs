@@ -77,7 +77,7 @@ namespace Cliente
             }
         }
 
-        public DataTable pesquisar(String descricao)
+        public DataTable pesquisar(string descricao)
         {
             Banco banco;
             try
