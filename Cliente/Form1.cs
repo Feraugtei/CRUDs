@@ -107,5 +107,15 @@ namespace Cliente
             f = new fGraficos();
             f.ShowDialog();
         }
+
+        private void txtBoxPesquisa_KeyUp(object sender, KeyEventArgs e)
+        {
+            ClienteDAO clienteDAO;
+            clienteDAO = new ClienteDAO();
+
+            //dgvDados.DataSource = clienteDAO.listar();
+
+            dgvDados.DataSource = clienteDAO.pesquisar(txtBoxPesquisa.Text);
+        }
     }
 }

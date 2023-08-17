@@ -77,6 +77,26 @@ namespace Cliente
             }
         }
 
+        public DataTable pesquisar(String descricao)
+        {
+            Banco banco;
+            try
+            {
+                banco = new Banco();
+                banco.comando.CommandText = "Select codigo,descricao,datavalidade,preco,taxalucro from produto WHERE descricao LIKE @d order by 1;";
+                banco.comando.Parameters.Add("@d", NpgsqlTypes.NpgsqlDbType.Varchar).Value = "%" + descricao + "%";
+                banco.reader = banco.comando.ExecuteReader();// Retorna uma tabela postgres
+                banco.tabela = new DataTable();
+                banco.tabela.Load(banco.reader);
+                Banco.conexao.Close();
+                return (banco.tabela);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao listar cliente: " + ex.Message);
+            }
+        }
+
         public Cliente preencher(int codigo)
         {
             Banco banco;
