@@ -32,7 +32,29 @@ namespace Cliente
                 throw new Exception("Erro ao gravar cliente: " + ex.Message);
             }
         }
-
+        public int atualizar(Cliente obj)
+        {
+            Banco banco;
+            int flag = 0;
+            try
+            {
+                banco = new Banco();
+                banco.comando.CommandText = "UPDATE produto SET descricao = @d,datavalidade = @v,preco = @p,taxalucro = @l WHERE codigo = @c";
+                banco.comando.Parameters.Add("@d", NpgsqlTypes.NpgsqlDbType.Varchar).Value = obj.descricao;
+                banco.comando.Parameters.Add("@v", NpgsqlTypes.NpgsqlDbType.Date).Value = obj.validade;
+                banco.comando.Parameters.Add("@p", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.preco;
+                banco.comando.Parameters.Add("@l", NpgsqlTypes.NpgsqlDbType.Double).Value = obj.lucro;
+                banco.comando.Parameters.Add("@c", NpgsqlTypes.NpgsqlDbType.Integer).Value = obj.codigo;
+                banco.comando.Prepare();
+                flag = banco.comando.ExecuteNonQuery();
+                Banco.conexao.Close();
+                return (flag);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao atualizar cliente: " + ex.Message);
+            }
+        }
         public void gravarGetCodigo(Cliente obj)
         {
             Banco banco;
@@ -104,7 +126,7 @@ namespace Cliente
             try
             {
                 banco = new Banco();
-                banco.comando.CommandText = "Select codigo,descricao,datavalidade,preco,taxalucro from produto where codigo= @c;";
+                banco.comando.CommandText = "SELECT codigo,descricao,datavalidade,preco,taxalucro FROM produto WHERE codigo = @c;";
                 banco.comando.Parameters.Add("@c", NpgsqlTypes.NpgsqlDbType.Integer).Value = codigo;
                 banco.comando.Prepare();
                 banco.reader = banco.comando.ExecuteReader();
@@ -114,8 +136,8 @@ namespace Cliente
                     cliente.setCodigo((int)banco.reader[0]);
                     cliente.setDescricao((String)banco.reader[1]);
                     cliente.setValidade((DateTime)banco.reader[2]);
-                    cliente.setPreco((float)banco.reader[3]);
-                    cliente.setLucro((float)banco.reader[4]);
+                    cliente.setPreco((double)banco.reader[3]);
+                    cliente.setLucro((double)banco.reader[4]);
                 }
                 Banco.conexao.Close();
                 return (cliente);
@@ -123,6 +145,25 @@ namespace Cliente
             catch (Exception ex)
             {
                 throw new Exception("Erro ao preencher cliente: " + ex.Message);
+            }
+        }
+        public int deletar(int codigo)
+        {
+            Banco banco;
+            int flag = 0;
+            try
+            {
+                banco = new Banco();
+                banco.comando.CommandText = "DELETE FROM produto WHERE codigo = @c";
+                banco.comando.Parameters.Add("@c", NpgsqlTypes.NpgsqlDbType.Integer).Value = codigo;
+                banco.comando.Prepare();
+                flag = banco.comando.ExecuteNonQuery();
+                Banco.conexao.Close();
+                return (flag);
+            }
+            catch (Exception ex)
+            {
+                throw new Exception("Erro ao deletar cliente: " + ex.Message);
             }
         }
     }

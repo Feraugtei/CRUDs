@@ -43,6 +43,7 @@ namespace Cliente
                 if(clienteDAO.gravar(cliente) > 0)
                 {
                     MessageBox.Show("Salvo com sucesso.");
+                    dgvDados.DataSource = clienteDAO.listar();
                 }
             }
             catch(Exception ex)
@@ -72,12 +73,12 @@ namespace Cliente
             int codigo;
             try
             {
-                if(txtBoxCodigo.Text.Trim().Length > 0)
+                if (txtBoxCodigo.Text.Trim().Length > 0)
                 {
                     codigo = Convert.ToInt32(txtBoxCodigo.Text);
                     clienteDAO = new ClienteDAO();
                     cliente = clienteDAO.preencher(codigo);
-                    if(cliente != null)
+                    if (cliente != null)
                     {
                         txtBoxCodigo.Text = cliente.codigo.ToString();
                         txtBoxDescricao.Text = cliente.descricao;
@@ -89,9 +90,10 @@ namespace Cliente
                     else
                     {
                         txtBoxDescricao.Clear();
-                        boxValidade.Text = string.Empty;
+                        boxValidade.Value = DateTime.Today;
                         txtBoxPreco.Clear();
                         txtBoxLucro.Clear();
+                        MessageBox.Show("Insira um código valido");
                     }
                 }
             }
@@ -114,6 +116,74 @@ namespace Cliente
             clienteDAO = new ClienteDAO();
 
             dgvDados.DataSource = clienteDAO.pesquisar(txtBoxPesquisa.Text);
+        }
+
+        private void btnDeletar_Click(object sender, EventArgs e)
+        {
+            ClienteDAO clienteDAO;
+            int codigo;
+
+            try
+            {
+                if (txtBoxCodigo.Text.Trim().Length > 0)
+                {
+                    codigo = Convert.ToInt32(txtBoxCodigo.Text);
+                    clienteDAO = new ClienteDAO();
+                    if (clienteDAO.deletar(codigo) > 0)
+                    {
+                        MessageBox.Show("Deletado com sucesso");
+                        dgvDados.DataSource = clienteDAO.listar();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Código Invalido");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Insira o código do produto a ser deletado");
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
+        }
+
+        private void btnAtualizar_Click(object sender, EventArgs e)
+        {
+            Cliente cliente;
+            ClienteDAO clienteDAO;
+
+            try
+            {
+                if (txtBoxCodigo.Text.Trim().Length > 0)
+                {
+                    cliente = new Cliente();
+                    cliente.setCodigo(txtBoxCodigo.Text);
+                    cliente.setDescricao(txtBoxDescricao.Text);
+                    cliente.setValidade(boxValidade.Value);
+                    cliente.setPreco(txtBoxPreco.Text);
+                    cliente.setLucro(txtBoxLucro.Text);
+
+                    clienteDAO = new ClienteDAO();
+                    if (clienteDAO.atualizar(cliente) > 0)
+                    {
+                        MessageBox.Show("Atualizado com sucesso.");
+                        dgvDados.DataSource = clienteDAO.listar();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Insira o código do produto a ser atualizado");
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

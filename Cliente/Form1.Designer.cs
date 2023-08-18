@@ -44,48 +44,55 @@
             this.txtBoxLucro = new System.Windows.Forms.TextBox();
             this.txtPesquisar = new System.Windows.Forms.Label();
             this.txtBoxPesquisa = new System.Windows.Forms.TextBox();
+            this.btnDeletar = new System.Windows.Forms.Button();
+            this.btnAtualizar = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDados)).BeginInit();
             this.SuspendLayout();
             // 
             // txtDescricao
             // 
             this.txtDescricao.AutoSize = true;
-            this.txtDescricao.Location = new System.Drawing.Point(13, 72);
+            this.txtDescricao.Location = new System.Drawing.Point(17, 89);
+            this.txtDescricao.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtDescricao.Name = "txtDescricao";
-            this.txtDescricao.Size = new System.Drawing.Size(55, 13);
+            this.txtDescricao.Size = new System.Drawing.Size(69, 16);
             this.txtDescricao.TabIndex = 1;
             this.txtDescricao.Text = "Descrição";
             // 
             // txtValidade
             // 
             this.txtValidade.AutoSize = true;
-            this.txtValidade.Location = new System.Drawing.Point(13, 201);
+            this.txtValidade.Location = new System.Drawing.Point(17, 247);
+            this.txtValidade.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtValidade.Name = "txtValidade";
-            this.txtValidade.Size = new System.Drawing.Size(48, 13);
+            this.txtValidade.Size = new System.Drawing.Size(62, 16);
             this.txtValidade.TabIndex = 2;
             this.txtValidade.Text = "Validade";
             // 
             // txtBoxCodigo
             // 
-            this.txtBoxCodigo.Location = new System.Drawing.Point(87, 25);
+            this.txtBoxCodigo.Location = new System.Drawing.Point(116, 31);
+            this.txtBoxCodigo.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxCodigo.Name = "txtBoxCodigo";
-            this.txtBoxCodigo.Size = new System.Drawing.Size(151, 20);
+            this.txtBoxCodigo.Size = new System.Drawing.Size(277, 22);
             this.txtBoxCodigo.TabIndex = 3;
             this.txtBoxCodigo.Leave += new System.EventHandler(this.txtCodigo_Leave);
             // 
             // txtBoxDescricao
             // 
-            this.txtBoxDescricao.Location = new System.Drawing.Point(87, 72);
+            this.txtBoxDescricao.Location = new System.Drawing.Point(116, 89);
+            this.txtBoxDescricao.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxDescricao.Multiline = true;
             this.txtBoxDescricao.Name = "txtBoxDescricao";
-            this.txtBoxDescricao.Size = new System.Drawing.Size(209, 95);
+            this.txtBoxDescricao.Size = new System.Drawing.Size(277, 116);
             this.txtBoxDescricao.TabIndex = 4;
             // 
             // btnGravar
             // 
-            this.btnGravar.Location = new System.Drawing.Point(18, 366);
+            this.btnGravar.Location = new System.Drawing.Point(24, 450);
+            this.btnGravar.Margin = new System.Windows.Forms.Padding(4);
             this.btnGravar.Name = "btnGravar";
-            this.btnGravar.Size = new System.Drawing.Size(75, 23);
+            this.btnGravar.Size = new System.Drawing.Size(100, 28);
             this.btnGravar.TabIndex = 6;
             this.btnGravar.Text = "Gravar";
             this.btnGravar.UseVisualStyleBackColor = true;
@@ -93,9 +100,10 @@
             // 
             // btnListar
             // 
-            this.btnListar.Location = new System.Drawing.Point(245, 366);
+            this.btnListar.Location = new System.Drawing.Point(368, 450);
+            this.btnListar.Margin = new System.Windows.Forms.Padding(4);
             this.btnListar.Name = "btnListar";
-            this.btnListar.Size = new System.Drawing.Size(75, 23);
+            this.btnListar.Size = new System.Drawing.Size(100, 28);
             this.btnListar.TabIndex = 7;
             this.btnListar.Text = "Listar";
             this.btnListar.UseVisualStyleBackColor = true;
@@ -108,30 +116,33 @@
             this.dgvDados.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvDados.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
             this.dgvDados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDados.Location = new System.Drawing.Point(348, 12);
+            this.dgvDados.Location = new System.Drawing.Point(521, 15);
+            this.dgvDados.Margin = new System.Windows.Forms.Padding(4);
             this.dgvDados.Name = "dgvDados";
             this.dgvDados.ReadOnly = true;
             this.dgvDados.RowHeadersVisible = false;
             this.dgvDados.RowHeadersWidth = 51;
             this.dgvDados.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvDados.Size = new System.Drawing.Size(806, 426);
+            this.dgvDados.Size = new System.Drawing.Size(1018, 524);
             this.dgvDados.TabIndex = 8;
             // 
             // txtCodigo
             // 
             this.txtCodigo.AutoSize = true;
-            this.txtCodigo.Location = new System.Drawing.Point(13, 25);
+            this.txtCodigo.Location = new System.Drawing.Point(17, 31);
+            this.txtCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtCodigo.Name = "txtCodigo";
-            this.txtCodigo.Size = new System.Drawing.Size(40, 13);
+            this.txtCodigo.Size = new System.Drawing.Size(51, 16);
             this.txtCodigo.TabIndex = 0;
             this.txtCodigo.Text = "Código";
             this.txtCodigo.Click += new System.EventHandler(this.label1_Click);
             // 
             // btnGrafico
             // 
-            this.btnGrafico.Location = new System.Drawing.Point(137, 401);
+            this.btnGrafico.Location = new System.Drawing.Point(198, 493);
+            this.btnGrafico.Margin = new System.Windows.Forms.Padding(4);
             this.btnGrafico.Name = "btnGrafico";
-            this.btnGrafico.Size = new System.Drawing.Size(75, 37);
+            this.btnGrafico.Size = new System.Drawing.Size(100, 46);
             this.btnGrafico.TabIndex = 9;
             this.btnGrafico.Text = "Grafico";
             this.btnGrafico.UseVisualStyleBackColor = true;
@@ -140,69 +151,91 @@
             // txtPreco
             // 
             this.txtPreco.AutoSize = true;
-            this.txtPreco.Location = new System.Drawing.Point(13, 246);
-            this.txtPreco.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtPreco.Location = new System.Drawing.Point(17, 303);
             this.txtPreco.Name = "txtPreco";
-            this.txtPreco.Size = new System.Drawing.Size(35, 13);
+            this.txtPreco.Size = new System.Drawing.Size(43, 16);
             this.txtPreco.TabIndex = 10;
             this.txtPreco.Text = "Preco";
             // 
             // boxValidade
             // 
-            this.boxValidade.Location = new System.Drawing.Point(87, 201);
-            this.boxValidade.Margin = new System.Windows.Forms.Padding(2);
+            this.boxValidade.Location = new System.Drawing.Point(116, 247);
+            this.boxValidade.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.boxValidade.Name = "boxValidade";
-            this.boxValidade.Size = new System.Drawing.Size(209, 20);
+            this.boxValidade.Size = new System.Drawing.Size(277, 22);
             this.boxValidade.TabIndex = 11;
             // 
             // txtBoxPreco
             // 
-            this.txtBoxPreco.Location = new System.Drawing.Point(87, 246);
-            this.txtBoxPreco.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxPreco.Location = new System.Drawing.Point(116, 303);
+            this.txtBoxPreco.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxPreco.Name = "txtBoxPreco";
-            this.txtBoxPreco.Size = new System.Drawing.Size(151, 20);
+            this.txtBoxPreco.Size = new System.Drawing.Size(277, 22);
             this.txtBoxPreco.TabIndex = 12;
             // 
             // txtLucro
             // 
             this.txtLucro.AutoSize = true;
-            this.txtLucro.Location = new System.Drawing.Point(15, 289);
-            this.txtLucro.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.txtLucro.Location = new System.Drawing.Point(20, 356);
             this.txtLucro.Name = "txtLucro";
-            this.txtLucro.Size = new System.Drawing.Size(34, 13);
+            this.txtLucro.Size = new System.Drawing.Size(40, 16);
             this.txtLucro.TabIndex = 13;
             this.txtLucro.Text = "Lucro";
             // 
             // txtBoxLucro
             // 
-            this.txtBoxLucro.Location = new System.Drawing.Point(87, 289);
-            this.txtBoxLucro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtBoxLucro.Location = new System.Drawing.Point(116, 356);
+            this.txtBoxLucro.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.txtBoxLucro.Name = "txtBoxLucro";
-            this.txtBoxLucro.Size = new System.Drawing.Size(151, 20);
+            this.txtBoxLucro.Size = new System.Drawing.Size(277, 22);
             this.txtBoxLucro.TabIndex = 14;
             // 
             // txtPesquisar
             // 
             this.txtPesquisar.AutoSize = true;
-            this.txtPesquisar.Location = new System.Drawing.Point(16, 330);
+            this.txtPesquisar.Location = new System.Drawing.Point(21, 406);
+            this.txtPesquisar.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.txtPesquisar.Name = "txtPesquisar";
-            this.txtPesquisar.Size = new System.Drawing.Size(53, 13);
+            this.txtPesquisar.Size = new System.Drawing.Size(68, 16);
             this.txtPesquisar.TabIndex = 15;
             this.txtPesquisar.Text = "Pesquisar";
             // 
             // txtBoxPesquisa
             // 
-            this.txtBoxPesquisa.Location = new System.Drawing.Point(87, 330);
+            this.txtBoxPesquisa.Location = new System.Drawing.Point(116, 406);
+            this.txtBoxPesquisa.Margin = new System.Windows.Forms.Padding(4);
             this.txtBoxPesquisa.Name = "txtBoxPesquisa";
-            this.txtBoxPesquisa.Size = new System.Drawing.Size(209, 20);
+            this.txtBoxPesquisa.Size = new System.Drawing.Size(277, 22);
             this.txtBoxPesquisa.TabIndex = 16;
             this.txtBoxPesquisa.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtBoxPesquisa_KeyUp);
             // 
+            // btnDeletar
+            // 
+            this.btnDeletar.Location = new System.Drawing.Point(141, 450);
+            this.btnDeletar.Name = "btnDeletar";
+            this.btnDeletar.Size = new System.Drawing.Size(100, 28);
+            this.btnDeletar.TabIndex = 17;
+            this.btnDeletar.Text = "Deletar";
+            this.btnDeletar.UseVisualStyleBackColor = true;
+            this.btnDeletar.Click += new System.EventHandler(this.btnDeletar_Click);
+            // 
+            // btnAtualizar
+            // 
+            this.btnAtualizar.Location = new System.Drawing.Point(252, 450);
+            this.btnAtualizar.Name = "btnAtualizar";
+            this.btnAtualizar.Size = new System.Drawing.Size(100, 28);
+            this.btnAtualizar.TabIndex = 18;
+            this.btnAtualizar.Text = "Atualizar";
+            this.btnAtualizar.UseVisualStyleBackColor = true;
+            this.btnAtualizar.Click += new System.EventHandler(this.btnAtualizar_Click);
+            // 
             // Form1
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1166, 453);
+            this.ClientSize = new System.Drawing.Size(1555, 558);
+            this.Controls.Add(this.btnAtualizar);
+            this.Controls.Add(this.btnDeletar);
             this.Controls.Add(this.txtBoxPesquisa);
             this.Controls.Add(this.txtPesquisar);
             this.Controls.Add(this.txtBoxLucro);
@@ -219,6 +252,7 @@
             this.Controls.Add(this.txtValidade);
             this.Controls.Add(this.txtDescricao);
             this.Controls.Add(this.txtCodigo);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form1";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
@@ -245,6 +279,8 @@
         private System.Windows.Forms.TextBox txtBoxLucro;
         private System.Windows.Forms.Label txtPesquisar;
         private System.Windows.Forms.TextBox txtBoxPesquisa;
+        private System.Windows.Forms.Button btnDeletar;
+        private System.Windows.Forms.Button btnAtualizar;
     }
 }
 
