@@ -1,8 +1,4 @@
-create table produto (
+create table mensagem(
 codigo serial primary key,
-descricao varchar(100),
-dataValidade date,
-preco float,
-taxaLucro float);
-
-select * from produto;
+usuario varchar(50) not null,
+msg varchar(4096));
